@@ -1,0 +1,33 @@
+{
+  "name": "app-landing-page",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "docker:build": "docker build -t react-landing-page .",
+    "docker:build-dev": "docker build -f Dockerfile.dev -t react-landing-page:dev .",
+    "docker:run": "docker run -p 80:80 react-landing-page",
+    "docker:run-dev": "docker run -p 3000:3000 -v $(pwd):/app -v /app/node_modules react-landing-page:dev",
+    "docker:dev": "docker-compose --profile dev up --build",
+    "docker:prod": "docker-compose --profile prod up --build -d",
+    "docker:stop": "docker-compose down"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.3",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "vite": "^4.4.5"
+  }
+}
